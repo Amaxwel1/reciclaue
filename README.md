@@ -1,4 +1,4 @@
-# Personálise
+# Recicla Ué
 
 O objetivo desse projeto é desenvolver a versão 1 de um software que tem como propósito realizar a coleta de resíduos recicláveis e conscientizar a população sobre reciclagem e o meio ambiente com isso incentivar e aumentar exponencialmente através de uma plataforma digital intuitiva e objetiva a reciclagem na capital do país.
 
