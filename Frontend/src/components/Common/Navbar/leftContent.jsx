@@ -20,7 +20,7 @@ const LeftContent = () => {
             <Link to="/quem-somos">Quem Somos</Link>
           </li>
           <li>
-            <Link>Contato</Link>
+            <Link to="/contato">Contato</Link>
           </li>
         </C.Ul>
       </C.Nav>
