@@ -1,18 +1,16 @@
-import Footer from "../../components/Common/Footer";
-import Navbar from "../../components/Common/Navbar";
+import Layout from "../../Components/Layout";
 import { Box, Flex, Text, Image, Stack, Heading } from "@chakra-ui/react";
 import ValoresSection from "./cards-mvv";
+import images from "../../assets/images.jsx";
 
 const QuemSomos = () => {
   return (
-    <>
-      <Navbar />
+    <Layout navBarBg="#5AA062">
       <Flex
         direction={["column", "column", "row"]}
         align="center"
         justify="center"
         padding={8}
-        mt={-200}
         maxW="1200px"
         mx="auto"
       >
@@ -23,11 +21,11 @@ const QuemSomos = () => {
           mb={[8, 0]}
           ml={-220}
           mr={150}
-          mt={300}
+          mt={200}
         >
           <Box>
             <Image
-              src="./Hero2.png"
+              src={images.hero2}
               alt="Recicla Ué"
               borderRadius="md"
               maxW="577px"
@@ -46,7 +44,7 @@ const QuemSomos = () => {
             left={50}
           >
             <Image
-              src="./logo1.png"
+              src={images.logo}
               alt="Transforme seu lixo reciclável em receita"
               maxW="261px"
               position="relative"
@@ -134,15 +132,14 @@ const QuemSomos = () => {
       >
         <Box alignItems="center" mb={50}>
           <Image
-            src="./lixeiras.png"
+            src={images.lixeiras}
             alt="Transforme seu lixo reciclável em receita"
             position="relative"
             left="2%"
           />
         </Box>
       </Flex>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

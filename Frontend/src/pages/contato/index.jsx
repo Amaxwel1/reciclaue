@@ -1,100 +1,182 @@
-import Footer from "../../components/Common/Footer";
-import Navbar from "../../components/Common/Navbar";
+import React, { useState } from "react";
+import Layout from "../../Components/Layout";
 import {
   Box,
   Flex,
-  VStack,
   Stack,
   Text,
   Input,
   Button,
   Image,
   FormControl,
-  ChakraProvider,
+  useToast,
 } from "@chakra-ui/react";
+import images from "../../assets/images.jsx";
+import axios from "axios";
 
 const Contato = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    whatsapp: "",
+    company: "",
+  });
+
+  // Initialize the toast hook
+  const toast = useToast();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:3001/teste", formData);
+      if (response.data.success) {
+        // Show success toast
+        toast({
+          title: "Formulário enviado com sucesso!",
+          description: "Em breve entraremos em contato com você.",
+          status: "success",
+          duration: 5000, // 5 seconds
+          isClosable: true,
+          position: "top",
+        });
+      } else {
+        toast({
+          title: "Erro",
+          description: "Houve um erro ao enviar o formulário. Tente novamente.",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+      }
+    } catch (error) {
+      console.error("Erro ao enviar o email", error);
+      // Show error toast
+      toast({
+        title: "Erro",
+        description: "Erro ao enviar o formulário. Tente novamente.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "top",
+      });
+    }
+  };
+
   return (
-    <>
-      <Navbar />
-      <Flex
-        direction={["column", "row"]}
-        align="center"
-        justify="space-between"
-        bg="white"
-        maxW="1200px"
-        h="fit-content"
-        mx="auto"
-        p={8}
-        position="relative"
-        borderRadius="lg"
-        overflow="hidden"
-      >
-        <img src="/logo7.png" style={{ width:"55%", position:"sticky", marginLeft:"-2%", marginBottom:"-10%", zIndex:"1" }}></img>
+    <Layout navBarBg="#5AA062">
+      <form onSubmit={handleSubmit}>
+        <Flex
+          direction={["column", "row"]}
+          align="center"
+          justify="space-between"
+          bg="white"
+          maxW="1200px"
+          h="fit-content"
+          mx="auto"
+          p={8}
+          position="relative"
+          borderRadius="lg"
+          overflow="visible"
+          zIndex="2"
+        >
+          <Image
+            src={images.logo7}
+            style={{
+              width: "70%",
+              position: "sticky",
+              marginLeft: "-6%",
+              marginRight: "-30%",
+              marginBottom: "-10%",
+              zIndex: "1",
+            }}
+          ></Image>
 
-        <Box position="relative" maxW="400px" zIndex="1">
-          <Text fontSize="xl" fontWeight="bold" textAlign="center" mb={4}>
-            Nós entramos em contato com{" "}
-            <Text as="span" color="green.500">
-              você
+          <Box position="relative" maxW="400px" zIndex="2" paddingBottom={-43}>
+            <Text fontSize="xl" fontWeight="bold" textAlign="center" mb={4}>
+              Nós entramos em contato com{" "}
+              <Text as="span" color="green.500">
+                você
+              </Text>
             </Text>
-          </Text>
 
-          <Stack spacing={4} zIndex="1">
-            <FormControl>
-              <Input
-                placeholder="Insira seu nome"
-                borderColor="green.500"
-                focusBorderColor="green.500"
-                _placeholder={{ color: "gray.500" }}
-              />
-            </FormControl>
-            <FormControl>
-              <Input
-                placeholder="Insira seu E-mail"
-                type="email"
-                borderColor="green.500"
-                focusBorderColor="green.500"
-                _placeholder={{ color: "gray.500" }}
-              />
-            </FormControl>
-            <FormControl>
-              <Input
-                placeholder="Insira seu WhatsApp"
-                type="tel"
-                borderColor="green.500"
-                focusBorderColor="green.500"
-                _placeholder={{ color: "gray.500" }}
-              />
-            </FormControl>
-            <FormControl>
-              <Input
-                placeholder="Insira seu tipo de empresa"
-                borderColor="green.500"
-                focusBorderColor="green.500"
-                _placeholder={{ color: "gray.500" }}
-              />
-            </FormControl>
+            <Stack spacing={5} zIndex="2">
+              <FormControl>
+                <Input
+                  name="name"
+                  placeholder="Insira seu nome"
+                  borderColor="green.500"
+                  focusBorderColor="green.500"
+                  _placeholder={{ color: "gray.500" }}
+                  value={formData.name}
+                  onChange={handleInputChange}
+                />
+              </FormControl>
+              <FormControl>
+                <Input
+                  name="email"
+                  placeholder="Insira seu E-mail"
+                  type="email"
+                  borderColor="green.500"
+                  focusBorderColor="green.500"
+                  _placeholder={{ color: "gray.500" }}
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+              </FormControl>
+              <FormControl>
+                <Input
+                  name="whatsapp"
+                  placeholder="Insira seu WhatsApp"
+                  type="tel"
+                  borderColor="green.500"
+                  focusBorderColor="green.500"
+                  _placeholder={{ color: "gray.500" }}
+                  value={formData.whatsapp}
+                  onChange={handleInputChange}
+                />
+              </FormControl>
+              <FormControl>
+                <Input
+                  name="company"
+                  placeholder="Insira seu tipo de empresa"
+                  borderColor="green.500"
+                  focusBorderColor="green.500"
+                  _placeholder={{ color: "gray.500" }}
+                  value={formData.company}
+                  onChange={handleInputChange}
+                />
+              </FormControl>
 
-            <Button colorScheme="green" w="full">
-              Enviar formulário
-            </Button>
-          </Stack>
-        </Box>
-      </Flex>
+              <Button type="submit" colorScheme="green" w="full">
+                Enviar formulário
+              </Button>
+            </Stack>
+          </Box>
+        </Flex>
+      </form>
+
       <Box>
         <Image
-          src="/meninaVoadora.png"
+          src={images.meninaVoadora}
           alt="Menina Voadora"
           position="absolute"
-          bottom="20%"
+          bottom="27%"
           right="0%"
           maxW="20%"
-          zIndex="-1"
+          zIndex="5"
         />
-        </Box>
-      <Footer />
-    </>
+      </Box>
+    </Layout>
   );
 };
 
