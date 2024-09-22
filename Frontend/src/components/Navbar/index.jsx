@@ -18,15 +18,18 @@ export default function Navbar({ bg = "transparent" }) {
       zIndex={3}
       position="absolute"
     >
-      <Image
-        src={logo}
-        h={{ base: 50, md: 80 }}
-        width={{ base: 50, md: 80 }}
-        objectFit="contain"
-        alt="Logo Recicla Ue"
-        mb={{ base: 4, md: 0 }}
-        ml={54}
-      />
+      <Link variant="plain" href="/">
+        <Image
+          src={logo}
+          h={{ base: 50, md: 80 }}
+          width={{ base: 50, md: 80 }}
+          objectFit="contain"
+          alt="Logo Recicla Ue"
+          mb={{ base: 4, md: 0 }}
+          ml={54}
+        />
+      </Link>
+
       <Flex
         justifyContent="center"
         alignItems="center"
