@@ -1,6 +1,7 @@
-import { Flex, Link, Image, Button, Icon } from "@chakra-ui/react";
+import { Flex, Image, Button, Icon } from "@chakra-ui/react";
 import logo from "../../assets/images/logoNav.png";
 import { IoMdLogIn } from "react-icons/io";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export default function Navbar({ bg = "transparent" }) {
@@ -18,7 +19,7 @@ export default function Navbar({ bg = "transparent" }) {
       zIndex={3}
       position="absolute"
     >
-      <Link variant="plain" href="/">
+      <Link to="/">
         <Image
           src={logo}
           h={{ base: 50, md: 80 }}
@@ -39,20 +40,20 @@ export default function Navbar({ bg = "transparent" }) {
         fontSize="xl"
         mr={12}
       >
-        <Link variant="plain" href="/" fontWeight="bold">
+        <Link to="/" style={{ fontWeight: "bold" }}>
           Home
         </Link>
-        <Link variant="plain" href="/#tutorial" fontWeight="bold">
+        <a href="/#tutorial" style={{ fontWeight: "bold" }}>
           Aprender a reciclar
-        </Link>
-        <Link variant="plain" href="/quem-somos" fontWeight="bold">
+        </a>
+        <Link to="/quem-somos" style={{ fontWeight: "bold" }}>
           Quem somos
         </Link>
-        <Link variant="plain" href="/contato" fontWeight="bold">
+        <Link to="/contato" style={{ fontWeight: "bold" }}>
           Contato
         </Link>
       </Flex>
-      <Link href="/manutencao">
+      <Link to="/manutencao">
         <Button
           color="white"
           bg="#177027"
