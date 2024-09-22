@@ -1,22 +1,19 @@
-import Footer from "../../components/Common/Footer";
-import Navbar from "../../components/Common/Navbar";
+import Layout from "../../Components/Layout";
 import {
   Box,
   Flex,
-  VStack,
   Stack,
   Text,
   Input,
   Button,
   Image,
   FormControl,
-  ChakraProvider,
 } from "@chakra-ui/react";
+import images from "../../assets/images.jsx";
 
 const Contato = () => {
   return (
-    <>
-      <Navbar />
+    <Layout navBarBg="#5AA062">
       <Flex
         direction={["column", "row"]}
         align="center"
@@ -30,7 +27,16 @@ const Contato = () => {
         borderRadius="lg"
         overflow="hidden"
       >
-        <img src="/logo7.png" style={{ width:"55%", position:"sticky", marginLeft:"-2%", marginBottom:"-10%", zIndex:"1" }}></img>
+        <Image
+          src={images.logo7}
+          style={{
+            width: "55%",
+            position: "sticky",
+            marginLeft: "-2%",
+            marginBottom: "-10%",
+            zIndex: "1",
+          }}
+        ></Image>
 
         <Box position="relative" maxW="400px" zIndex="1">
           <Text fontSize="xl" fontWeight="bold" textAlign="center" mb={4}>
@@ -84,7 +90,7 @@ const Contato = () => {
       </Flex>
       <Box>
         <Image
-          src="/meninaVoadora.png"
+          src={images.meninaVoadora}
           alt="Menina Voadora"
           position="absolute"
           bottom="20%"
@@ -92,9 +98,8 @@ const Contato = () => {
           maxW="20%"
           zIndex="-1"
         />
-        </Box>
-      <Footer />
-    </>
+      </Box>
+    </Layout>
   );
 };
 
