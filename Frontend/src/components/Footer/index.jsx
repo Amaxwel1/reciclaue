@@ -11,13 +11,14 @@ import { Link } from "react-router-dom";
 import { FaPhoneAlt, FaClock } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { BsTwitterX, BsInstagram, BsYoutube, BsLinkedin } from "react-icons/bs";
+import images from "../../assets/images.jsx";
 
 const Footer = () => {
   return (
     <Flex
       as="footer"
       position="relative"
-      backgroundImage="./footer.png"
+      backgroundImage={images.footer}
       backgroundSize="110%"
       backgroundRepeat="no-repeat"
       backgroundPosition="top"
@@ -26,7 +27,7 @@ const Footer = () => {
     >
       <Container maxW="7xl" paddingTop="150px">
         <Flex align="center" ml="-60px" mt={15} mb={-15}>
-          <Image src="./logo2.png" alt="Recicla Ué" width={250} />
+          <Image src={images.logo2} alt="Recicla Ué" width={250} />
         </Flex>
         <SimpleGrid columns={[1, null, 4]} spacing={130}>
           <Box>
