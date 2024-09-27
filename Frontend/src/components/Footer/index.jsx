@@ -88,37 +88,14 @@ const Footer = () => {
             <Stack spacing={2}>
               <Flex align="center">
                 <FaPhoneAlt style={{ marginRight: "8px" }} />
-                <Text fontFamily="inter">(61) 99999-8888</Text>
+                <Text fontFamily="inter">(61) 93620-1899</Text>
               </Flex>
               <Flex align="center">
                 <IoIosMail style={{ marginRight: "8px" }} />
                 <Text fontFamily="inter">Email: reciclaue@gmail.com</Text>
               </Flex>
               <Flex align="center">
-                <FaClock style={{ marginRight: "8px", marginBottom: "25px" }} />
-                <Text fontFamily="inter">
-                  Horário de atendimentos seg a sex - 09h às 18h
-                </Text>
               </Flex>
-            </Stack>
-          </Box>
-          <Box>
-            <Text fontWeight="bold" mb={2} fontFamily="inter">
-              Redes Sociais
-            </Text>
-            <Stack direction="row" spacing={4}>
-              <Link to="https://www.x.com/">
-                <BsTwitterX />
-              </Link>
-              <Link to="https://www.instagram.com/">
-                <BsInstagram />
-              </Link>
-              <Link to="https://www.youtube.com/">
-                <BsYoutube />
-              </Link>
-              <Link to="https://www.linkedin.com/">
-                <BsLinkedin />
-              </Link>
             </Stack>
           </Box>
         </SimpleGrid>
