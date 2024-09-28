@@ -12,7 +12,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import images from "../../assets/images.jsx";
-import axios from "axios";
+import emailjs from "emailjs-com";
 
 const Contato = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +22,6 @@ const Contato = () => {
     company: "",
   });
 
-  // Initialize the toast hook
   const toast = useToast();
 
   const handleInputChange = (e) => {
@@ -37,14 +36,27 @@ const Contato = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3001/teste", formData);
-      if (response.data.success) {
-        // Show success toast
+      const serviceID = "service_78cc85j";
+      const templateID = "ReCiclaaaaaaaaa_vy7ekdm";
+      const userID = "GPvj57bPmXIJBugaz";
+
+      const templateParams = {
+        user_name: formData.name,
+        user_email: formData.email,
+        user_whatsapp: formData.whatsapp,
+        user_company: formData.company, 
+      };
+
+      console.log(templateParams);
+
+      const emailResponse = await emailjs.send(serviceID, templateID, templateParams, userID);
+
+      if (emailResponse.status === 200) {
         toast({
           title: "Formulário enviado com sucesso!",
           description: "Em breve entraremos em contato com você.",
           status: "success",
-          duration: 5000, // 5 seconds
+          duration: 5000,
           isClosable: true,
           position: "top",
         });
@@ -60,7 +72,6 @@ const Contato = () => {
       }
     } catch (error) {
       console.error("Erro ao enviar o email", error);
-      // Show error toast
       toast({
         title: "Erro",
         description: "Erro ao enviar o formulário. Tente novamente.",

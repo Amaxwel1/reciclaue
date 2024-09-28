@@ -49,6 +49,9 @@ export default function Navbar({ bg = "transparent" }) {
         <Link to="/quem-somos" style={{ fontWeight: "bold" }}>
           Quem somos
         </Link>
+        <Link to="/contato" style={{ fontWeight: "bold" }}>
+          Contato
+        </Link>
       </Flex>
       <Link to="/manutencao">
         <Button
