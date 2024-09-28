@@ -90,6 +90,10 @@ const Footer = () => {
                 <IoIosMail style={{ marginRight: "8px" }} />
                 <Text fontFamily="inter">Email: reciclaue@gmail.com</Text>
               </Flex>
+              <Flex align="center">
+                <FaPhoneAlt style={{ marginRight: "8px" }} />
+                <Text fontFamily="inter">(61) 93620-1899</Text>
+              </Flex>
             </Stack>
           </Box>
           <Box>
@@ -97,7 +101,7 @@ const Footer = () => {
               Redes Sociais
             </Text>
             <Stack direction="row" spacing={4}>
-              <Link to="https://www.instagram.com/">
+              <Link to="https://www.instagram.com/recicla_ue?igsh=MW9kcmtyYjQ5Z2N2YQ==">
                 <BsInstagram />
               </Link>
             </Stack>
