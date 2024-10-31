@@ -52,6 +52,9 @@ export default function Navbar({ bg = "transparent" }) {
         <Link to="/contato" style={{ fontWeight: "bold" }}>
           Contato
         </Link>
+        <Link to="/Tabelaprecos" style={{ fontWeight: "bold" }}>
+          Modelo de Custos
+        </Link>
       </Flex>
       <Link to="/manutencao">
         <Button

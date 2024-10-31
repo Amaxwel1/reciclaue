@@ -4,6 +4,7 @@ import QuemSomos from "../pages/QuemSomos";
 import Contato from "../pages/contato";
 import Home from "../pages/Home";
 import Manutencao from "../pages/manutencao"
+import TabelaPrecos from "../pages/Tabelaprecos"
 
 const RouteApp = () => {
   return (
@@ -14,6 +15,7 @@ const RouteApp = () => {
           <Route path="/quem-somos" element={<QuemSomos />} />
           <Route path="/contato" element={<Contato />} />
           <Route path="/manutencao" element={<Manutencao />} />
+          <Route path="/Tabelaprecos" element={<TabelaPrecos />} />
         </Routes>
       </Fragment>
     </BrowserRouter>
