@@ -24,6 +24,7 @@ import meninaVoadora from "../assets/images/meninaVoadora.png";
 import hero2 from "../assets/images/Hero2.png";
 import logo7 from "../assets/images/logo7.png";
 import lixeiras from "../assets/images/lixeiras.png";
+import grafico2 from "../assets/images/grafico2.png";
 
 const images = {
   bg,
@@ -52,6 +53,7 @@ const images = {
   hero2,
   logo7,
   lixeiras,
+  grafico2,
 };
 
 export default images;
